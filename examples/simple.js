@@ -1,6 +1,6 @@
 const express = require('express');
 const request = require('request');
-const proxycache = require('./')
+const proxycache = require('../')
 
 // create gcloud proxy cache client
 const config = {
@@ -19,7 +19,8 @@ const config = {
 		}
   }
 }
-const cache = proxycache(config)
+let cache
+proxycache(config).then(pc => cache = pc)
 
 // downstream service
 const getDownstreamUrl = (id) => {
