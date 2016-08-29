@@ -1,8 +1,8 @@
-# proxy-cache
+# proxycache
 
-[![Build Status](https://travis-ci.org/fdesjardins/proxy-cache.svg?branch=master)](https://travis-ci.org/fdesjardins/proxy-cache)
-[![NPM Version](http://img.shields.io/npm/v/proxy-cache.svg?style=flat)](https://www.npmjs.org/package/proxy-cache)
-[![Coverage Status](https://coveralls.io/repos/github/fdesjardins/proxy-cache/badge.svg?branch=master)](https://coveralls.io/github/fdesjardins/proxy-cache?branch=master)
+[![Build Status](https://travis-ci.org/fdesjardins/proxycache.svg?branch=master)](https://travis-ci.org/fdesjardins/proxycache)
+[![NPM Version](http://img.shields.io/npm/v/proxycache.svg?style=flat)](https://www.npmjs.org/package/proxycache)
+[![Coverage Status](https://coveralls.io/repos/github/fdesjardins/proxycache/badge.svg?branch=master)](https://coveralls.io/github/fdesjardins/proxycache?branch=master)
 
 A simple, configurable, Redis-powered caching proxy.
 
@@ -14,7 +14,7 @@ Use it when you want to
 # Install
 
 ```
-$ npm install --save proxy-cache
+$ npm install --save proxycache
 ```
 
 # Example
