@@ -23,14 +23,14 @@ class RedisLocalStore {
 		});
 	}
 
-	set(key, value, ttl) {
-		return this.redis.setAsync(key, value, 'EX', ttl);
+	set(key, value, ttl = 60) {
+		this.client.setAsync(key, value, 'EX', ttl);
 	}
 }
 
 class GoogleCloudCache {
 	constructor(config, localStore) {
-		this.localStore = localStore;
+		this.store = localStore;
 		this.storage = gcloud.storage(config.connection);
 		this.uploads = {};
 
@@ -39,7 +39,7 @@ class GoogleCloudCache {
 	}
 
 	get(key) {
-		return this.store.getAsync(key).then(result => {
+		return this.store.get(key).then(result => {
 			if (result) {
 				return result;
 			}
@@ -49,7 +49,7 @@ class GoogleCloudCache {
 
 	set(key, uri, ttl = 60) {
 		return this._write(key, uri).then(cacheUri => {
-			this.store.setAsync(key, cacheUri, 'EX', ttl);
+			this.store.set(key, cacheUri, ttl);
 			return cacheUri;
 		});
 	}
