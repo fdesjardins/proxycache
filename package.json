@@ -1,0 +1,59 @@
+{
+  "name": "proxy-cache",
+  "version": "0.0.0",
+  "description": "Web proxy caching for Node",
+  "license": "MIT",
+  "repository": "fdesjardins/proxy-cache",
+  "author": {
+    "name": "Forrest Desjardins",
+    "email": "desjardinsfg@gmail.com",
+    "url": "github.com/fdesjardins"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "test": "xo && nyc ava test/test.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "caching",
+    "proxy",
+    "proxy cache",
+    "cloud",
+    "storage",
+    "asset",
+    "file",
+    "google",
+    "cdn"
+  ],
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "coveralls": "^2.11.12",
+    "express": "^4.14.0",
+    "nyc": "^8.1.0",
+    "xo": "^0.16.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.3",
+    "filecache": "^0.2.1",
+    "google-cloud": "^0.38.3",
+    "memory-cache": "^0.1.6",
+    "redis": "^2.6.2",
+    "request": "^2.74.0"
+  },
+  "xo": {
+    "esnext": true,
+    "ignores": [
+      "examples/*.js"
+    ]
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  }
+}
