@@ -9,9 +9,9 @@ Promise.promisifyAll(redis.RedisClient.prototype);
 Promise.promisifyAll(redis.Multi.prototype);
 
 class RedisLocalStore {
-	constructor(connection, options) {
+	constructor(config, options) {
 		this.options = options;
-		this.client = redis.createClient();
+		this.client = redis.createClient(config.connection);
 	}
 
 	get(key) {
