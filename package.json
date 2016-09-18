@@ -45,10 +45,7 @@
     "request": "^2.74.0"
   },
   "xo": {
-    "esnext": true,
-    "ignores": [
-      "examples/*.js"
-    ]
+    "esnext": true
   },
   "nyc": {
     "reporter": [
