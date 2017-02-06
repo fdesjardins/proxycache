@@ -45,7 +45,10 @@
     "request": "^2.79.0"
   },
   "xo": {
-    "esnext": true
+    "esnext": true,
+    "rules": {
+      "no-use-extend-native/no-use-extend-native": 0
+    }
   },
   "nyc": {
     "reporter": [
