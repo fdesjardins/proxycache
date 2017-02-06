@@ -30,11 +30,11 @@
     "cdn"
   ],
   "devDependencies": {
-    "ava": "^0.16.0",
-    "coveralls": "^2.11.14",
-    "express": "^4.14.0",
-    "nyc": "^8.3.0",
-    "xo": "^0.16.0"
+    "ava": "^0.18.1",
+    "coveralls": "^2.11.16",
+    "express": "^4.14.1",
+    "nyc": "^10.1.2",
+    "xo": "^0.17.1"
   },
   "dependencies": {
     "bluebird": "^3.4.7",
