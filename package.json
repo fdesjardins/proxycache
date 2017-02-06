@@ -37,11 +37,11 @@
     "xo": "^0.16.0"
   },
   "dependencies": {
-    "bluebird": "^3.4.6",
+    "bluebird": "^3.4.7",
     "filecache": "^0.2.2",
-    "google-cloud": "^0.44.2",
+    "google-cloud": "^0.46.1",
     "memory-cache": "^0.1.6",
-    "redis": "^2.6.3",
+    "redis": "^2.6.5",
     "request": "^2.79.0"
   },
   "xo": {
