@@ -1,6 +1,6 @@
 {
   "name": "proxycache",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "description": "Web proxy caching for Node",
   "license": "MIT",
   "repository": "fdesjardins/proxycache",
