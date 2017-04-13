@@ -39,7 +39,7 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "filecache": "^0.2.2",
-    "google-cloud": "^0.49.0",
+    "google-cloud": "^0.51.1",
     "memory-cache": "^0.1.6",
     "redis": "^2.7.1",
     "request": "^2.81.0"
