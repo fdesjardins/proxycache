@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "bluebird": "^3.5.0",
+    "eslint-plugin-import": "^2.2.0",
     "filecache": "^0.2.2",
     "google-cloud": "^0.51.1",
     "memory-cache": "^0.1.6",
