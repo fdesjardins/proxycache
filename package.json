@@ -10,10 +10,10 @@
     "url": "github.com/fdesjardins"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=7.6"
   },
   "scripts": {
-    "test": "xo && nyc ava test/test.js"
+    "test": "eslint *.js && nyc ./node_modules/.bin/mocha --opts mocha.opts test.js"
   },
   "files": [
     "index.js"
@@ -30,11 +30,16 @@
     "cdn"
   ],
   "devDependencies": {
-    "ava": "^0.18.2",
+    "chai": "^3.5.0",
     "coveralls": "^2.12.0",
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
     "express": "^4.15.2",
-    "nyc": "^10.1.2",
-    "xo": "^0.18.0"
+    "mocha": "^3.2.0",
+    "nyc": "^10.1.2"
   },
   "dependencies": {
     "bluebird": "^3.5.0",

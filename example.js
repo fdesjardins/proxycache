@@ -1,28 +1,6 @@
-# proxycache
-
-[![Build Status](https://travis-ci.org/fdesjardins/proxycache.svg?branch=master)](https://travis-ci.org/fdesjardins/proxycache)
-[![NPM Version](http://img.shields.io/npm/v/proxycache.svg?style=flat)](https://www.npmjs.org/package/proxycache)
-[![Coverage Status](https://coveralls.io/repos/github/fdesjardins/proxycache/badge.svg?branch=master)](https://coveralls.io/github/fdesjardins/proxycache?branch=master)
-
-A simple, configurable, Redis-powered caching proxy.
-
-Use it when you want to
-- deliver a URL to a static file
-- cache the file somewhere
-- provide a URL to the cached version for subsequent requests
-
-# Install
-
-```
-$ npm install --save proxycache
-```
-
-# Example
-
-```javascript
 const express = require('express')
 const request = require('request')
-const proxycache = require('proxycache')
+const proxycache = require('./')
 
 // Create Redis/Cloud Storage proxycache client
 const config = {
@@ -34,10 +12,10 @@ const config = {
     client: 'gcloud',
     connection: {
       keyFilename: './gcloud-key.json',
-      projectId: 'my-project-id'
+      projectId: 'development'
     },
     options: {
-      bucket: 'images'
+      bucket: 'images-13nfd7sdf23fds73nfsdf'
     }
   }
 }
@@ -66,7 +44,7 @@ const render = src => `
 </html>
 `
 
-// API Server
+// Proxy Server
 const app = express()
 app.get('/images/:id', (req, res) => {
   const id = req.params.id
@@ -84,18 +62,4 @@ app.get('/images/:id', (req, res) => {
   })
 })
 app.listen(8000)
-```
-
-## API
-
-### proxycache(options)
-
-#### options
-
-#####
-
-Type: `object`
-
-# License
-
-MIT © [Forrest Desjardins](https://github.com/fdesjardins)
+console.log('Proxy server listening on 3888')
