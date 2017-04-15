@@ -1,5 +1,3 @@
-'use strict'
-
 const gcloud = require('google-cloud')
 const Promise = require('bluebird')
 const redis = require('redis')
