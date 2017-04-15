@@ -1,5 +1,5 @@
 const express = require('express')
-const request = require('request')
+const request = require('superagent')
 const proxycache = require('./')
 
 // Create Redis/Cloud Storage proxycache client
@@ -62,4 +62,4 @@ app.get('/images/:id', (req, res) => {
   })
 })
 app.listen(8000)
-console.log('Proxy server listening on 3888')
+console.log('Proxy server listening on 8000')

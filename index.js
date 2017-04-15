@@ -1,7 +1,7 @@
 const gcloud = require('google-cloud')
 const Promise = require('bluebird')
 const redis = require('redis')
-const request = require('request')
+const request = require('superagent')
 
 Promise.promisifyAll(redis.RedisClient.prototype)
 Promise.promisifyAll(redis.Multi.prototype)
@@ -58,16 +58,14 @@ class GoogleCloudCache {
       const name = Buffer.from(uri).toString('base64')
       const file = this.bucket.file(name)
       return new Promise((resolve, reject) => {
-        request(uri)
-        .pipe(file.createWriteStream())
-        .on('error', err => {
-          reject(err)
-          delete this.uploads[key]
-        })
-        .on('finish', () => {
-          resolve(`https://storage.googleapis.com/${this.bucketName}/${name}`)
-          delete this.uploads[key]
-        })
+        request.get(uri)
+          .pipe(file.createWriteStream())
+          .on('error', err => reject(err))
+          .on('finish', () => resolve())
+      })
+      .then(() => `https://storage.googleapis.com/${this.bucketName}/${name}`)
+      .finally(() => {
+        delete this.uploads[key]
       })
     }
     return null

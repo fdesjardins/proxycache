@@ -48,7 +48,7 @@
     "google-cloud": "^0.51.1",
     "memory-cache": "^0.1.6",
     "redis": "^2.7.1",
-    "request": "^2.81.0"
+    "superagent": "^3.5.2"
   },
   "xo": {
     "esnext": true,
