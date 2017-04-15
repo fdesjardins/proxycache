@@ -13,7 +13,7 @@
     "node": ">=7.6"
   },
   "scripts": {
-    "test": "eslint *.js && nyc ./node_modules/.bin/mocha --opts mocha.opts test.js"
+    "test": "./node_modules/.bin/eslint *.js && nyc ./node_modules/.bin/mocha --opts mocha.opts test.js"
   },
   "files": [
     "index.js"
