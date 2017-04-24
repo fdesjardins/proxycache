@@ -79,7 +79,7 @@ app.get('/images/:id', (req, res) => {
     const uri = `http://localhost:3888/images/${id}`
    // cache miss; send the default url
     res.end(render(uri))
-   // cache the file
+   // cache the file; TTL in seconds
     cache.set(id, uri, 60)
   })
 })
