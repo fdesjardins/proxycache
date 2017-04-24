@@ -20,7 +20,7 @@ class RedisLocalStore {
       return null
     })
   }
-
+  // TTL in seconds
   set (key, value, ttl = 60) {
     this.client.setAsync(key, value, 'EX', ttl)
   }
