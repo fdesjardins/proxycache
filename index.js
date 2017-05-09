@@ -43,12 +43,18 @@ class GoogleCloudCache {
       }
       return null
     })
+    .catch(err => {
+      return Promise.reject(err)
+    })
   }
 
   set (key, uri, ttl = 60) {
     return this._write(key, uri).then(cacheUri => {
       this.store.set(key, cacheUri, ttl)
       return cacheUri
+    })
+    .catch(err => {
+      return Promise.reject(err)
     })
   }
 
@@ -58,12 +64,15 @@ class GoogleCloudCache {
       const name = Buffer.from(uri).toString('base64')
       const file = this.bucket.file(name)
       return new Promise((resolve, reject) => {
-        request.get(uri)
+        return request.get(uri)
           .pipe(file.createWriteStream())
           .on('error', err => reject(err))
           .on('finish', () => resolve())
       })
       .then(() => `https://storage.googleapis.com/${this.bucketName}/${name}`)
+      .catch(err => {
+        return Promise.reject(err)
+      })
       .finally(() => {
         delete this.uploads[key]
       })
