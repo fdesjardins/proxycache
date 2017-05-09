@@ -40,11 +40,11 @@
     "eslint-plugin-standard": "^3.0.1",
     "express": "^4.15.2",
     "mocha": "^3.3.0",
-    "nyc": "^10.3.0"
+    "nyc": "^10.3.2"
   },
   "dependencies": {
+    "@google-cloud/storage": "^1.1.0",
     "bluebird": "^3.5.0",
-    "google-cloud": "^0.53.0",
     "redis": "^2.7.1",
     "superagent": "^3.5.2"
   },

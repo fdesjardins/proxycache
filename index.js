@@ -1,4 +1,4 @@
-const gcloud = require('google-cloud')
+const gcs = require('@google-cloud/storage')
 const Promise = require('bluebird')
 const redis = require('redis')
 const request = require('superagent')
@@ -29,7 +29,7 @@ class RedisLocalStore {
 class GoogleCloudCache {
   constructor (config, localStore) {
     this.store = localStore
-    this.storage = gcloud.storage(config.connection)
+    this.storage = gcs(config.connection)
     this.uploads = {}
 
     this.bucketName = config.options.bucket
