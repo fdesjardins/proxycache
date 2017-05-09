@@ -2,6 +2,7 @@ const gcs = require('@google-cloud/storage')
 const Promise = require('bluebird')
 const redis = require('redis')
 const request = require('superagent')
+const promiseRetry = require('promise-retry')
 
 Promise.promisifyAll(redis.RedisClient.prototype)
 Promise.promisifyAll(redis.Multi.prototype)
@@ -63,12 +64,19 @@ class GoogleCloudCache {
       this.uploads[key] = true
       const name = Buffer.from(uri).toString('base64')
       const file = this.bucket.file(name)
-      return new Promise((resolve, reject) => {
-        return request.get(uri)
-          .pipe(file.createWriteStream())
-          .on('error', err => reject(err))
-          .on('finish', () => resolve())
-      })
+      return Promise.resolve(
+        promiseRetry((retry, number) => {
+          return new Promise((resolve, reject) => {
+            request.get(uri)
+              .pipe(file.createWriteStream())
+              .on('error', err => reject(err))
+              .on('finish', () => resolve())
+          })
+          .catch(retry)
+        }, {
+          retries: 3
+        })
+      )
       .then(() => `https://storage.googleapis.com/${this.bucketName}/${name}`)
       .catch(err => {
         return Promise.reject(err)
