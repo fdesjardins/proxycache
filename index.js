@@ -62,7 +62,7 @@ class GoogleCloudCache {
   _write (key, uri) {
     if (this.uploads[key] === undefined) {
       this.uploads[key] = true
-      const name = Buffer.from(uri).toString('base64')
+      const name = Buffer.from(uri).toString('hex')
       const file = this.bucket.file(name)
       return Promise.resolve(
         promiseRetry((retry, number) => {
