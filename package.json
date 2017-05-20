@@ -43,7 +43,7 @@
     "nyc": "^10.3.2"
   },
   "dependencies": {
-    "@google-cloud/storage": "^1.1.0",
+    "@google-cloud/storage": "^1.1.1",
     "bluebird": "^3.5.0",
     "promise-retry": "^1.1.1",
     "redis": "^2.7.1",
